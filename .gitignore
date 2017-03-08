@@ -1,0 +1,7 @@
+/node_modules
+/bower_components
+/npm-debug.log
+/.htaccess
+/apache.txt
+.DS_Store
+sftp-config.json
