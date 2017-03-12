@@ -22,6 +22,8 @@ app.get('/todos', function(req, res) {
 // GET /todos/:id
 app.get('/todos/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
+
+    console.log(todos)
     var matchedTodo = _.findWhere(todos, {id: todoId});
 
     if (matchedTodo) {
@@ -48,6 +50,21 @@ app.post('/todos', function(req, res) {
     res.json(todos);
 
 });
+
+// DELETE
+app.delete('/todos/:id', function(req, res) {
+    var todoId = parseInt(req.params.id, 10);
+    var matchedTodo = _.findWhere(todos, {id: todoId});
+
+    if (matchedTodo) {
+        todos = _.without(todos, matchedTodo);
+        res.json(todos);
+    } else {
+        res.status(400).send('No todo found with that id');
+    }
+
+});
+
 
 app.listen(PORT, function() {
     console.log('Express server started on port ' + PORT);
