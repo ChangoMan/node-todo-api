@@ -5,3 +5,4 @@
 /apache.txt
 .DS_Store
 sftp-config.json
+data/*.sqlite
